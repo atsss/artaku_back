@@ -1,0 +1,25 @@
+version: "3.3"
+services:
+  web:
+    image: circleci/ruby:3.0-node-browsers
+    working_dir: /home/circleci/artaku
+    command: ["tail", "-f", "/dev/null"]
+    ports:
+    - "50272:50272"
+    links:
+    - mysql
+    environment:
+      PORT: 50272
+      DATABASE_HOST: mysql
+    volumes:
+    - .:/home/circleci/artaku:cached
+    # - artaku-unison-sync:/home/circleci/artaku:nocopy
+  mysql:
+    image: mysql:8.0.23
+    command: --default-authentication-plugin=mysql_native_password # 認証方式を8系以前のものにする。
+    environment:
+      MYSQL_ROOT_PASSWORD: 'pass'
+      MYSQL_DATABASE: 'api_development'
+# volumes:
+#   artaku-unison-sync:
+#     external: true

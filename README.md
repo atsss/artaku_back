@@ -1,24 +1,24 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To install docker for mac
+```
+https://docs.docker.com/docker-for-mac/
+```
 
-Things you may want to cover:
+To install docker-sync -> FIXME
+```
+gem install docker-sync
+```
 
-* Ruby version
+To get in the web container
+```
+make up
+make
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To set up inside the container
+```
+bundle install
+yarn install
+bin/rails db:create db:migrate db:seed
+````
