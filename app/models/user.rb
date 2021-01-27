@@ -14,6 +14,8 @@
 #  index_users_on_slug  (slug) UNIQUE
 #
 class User < ApplicationRecord
+  has_one_attached :image
+
   validates :slug, :name, presence: true
   validates :slug, uniqueness: true
 end
