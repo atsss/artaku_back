@@ -8,20 +8,23 @@ gem 'mysql2'
 gem 'puma'
 gem 'webpacker'
 
+# API
+gem 'graphql'
+
 # Image
 gem 'image_processing'
 gem "google-cloud-storage", "~> 1.8", require: false
+
+# Admin
+gem 'rails_admin'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem 'bootsnap', require: false
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
-# Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', require: false
-
-# Admin
-gem 'rails_admin'
 
 group :development, :test do
   gem 'annotate'
