@@ -16,6 +16,7 @@
 class User < ApplicationRecord
   has_one_attached :image
   has_many :artworks, foreign_key: :author_id
+  has_many :shootings, foreign_key: :author_id
 
   validates :slug, :name, presence: true
   validates :slug, uniqueness: true
