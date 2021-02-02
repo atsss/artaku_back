@@ -130,6 +130,9 @@ GEM
       multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
       signet (~> 0.14)
+    graphiql-rails (1.7.0)
+      railties
+      sprockets-rails
     graphql (1.12.3)
     haml (5.2.1)
       temple (>= 0.8.0)
@@ -334,6 +337,7 @@ DEPENDENCIES
   bootsnap
   dotenv-rails
   google-cloud-storage (~> 1.8)
+  graphiql-rails
   graphql
   image_processing
   mysql2

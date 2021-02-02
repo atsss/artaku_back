@@ -3,17 +3,17 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.0.0'
 
-gem 'rails', '6.1.1'
 gem 'mysql2'
 gem 'puma'
+gem 'rails', '6.1.1'
 gem 'webpacker'
 
 # API
 gem 'graphql'
 
 # Image
+gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'image_processing'
-gem "google-cloud-storage", "~> 1.8", require: false
 
 # Admin
 gem 'rails_admin'
@@ -29,6 +29,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   gem 'annotate'
   gem 'dotenv-rails'
+  gem 'graphiql-rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rubocop', require: false
@@ -41,4 +42,4 @@ group :development do
   gem 'web-console'
 end
 
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
