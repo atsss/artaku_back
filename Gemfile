@@ -20,6 +20,9 @@ gem "google-cloud-storage", "~> 1.8", require: false
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+# Admin
+gem 'rails_admin'
+
 group :development, :test do
   gem 'annotate'
   gem 'dotenv-rails'
