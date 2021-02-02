@@ -18,6 +18,10 @@ clean:
 	@$(CONMPOSE) rm -v -a
 bundle:
 	@$(WEB) bundle
+migrate:
+	@$(WEB) bin/rake db:migrate
+rollback:
+	@$(WEB) bin/rake db:rollback
 yarn:
 	@$(WEB) yarn
 webpack:
