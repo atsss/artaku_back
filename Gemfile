@@ -27,10 +27,8 @@ group :development, :test do
   gem 'annotate'
   gem 'dotenv-rails'
   gem 'pry-byebug'
-  gem 'pry-doc'
   gem 'pry-rails'
   gem 'rubocop', require: false
-  gem 'slim_lint', require: false
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen'
