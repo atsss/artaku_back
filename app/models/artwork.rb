@@ -8,6 +8,9 @@
 #  description  :text(65535)
 #  height       :float(24)        not null
 #  material     :string(255)      not null
+#  price        :integer
+#  published_at :datetime
+#  sold_at      :datetime
 #  style        :string(255)      not null
 #  title        :string(255)      not null
 #  width        :float(24)        not null

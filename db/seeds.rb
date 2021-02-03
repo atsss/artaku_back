@@ -14,11 +14,11 @@ user = User.create!(slug: 'ats', name: 'Atsushi Ito', description: description)
 
 artworks = [
   { title: 'title01', description: 'description01', width: 100, height: 400, style: 'Pencil', material: 'Panel',
-    completed_at: Time.current.ago(3.months) },
-  { title: 'title02', description: 'description02', width: 200, height: 500, style: 'Pencil', material: 'Panel',
-    completed_at: Time.current.ago(2.months) },
-  { title: 'title03', description: 'description03', width: 300, height: 600, style: 'Pencil', material: 'Panel',
-    completed_at: Time.current.ago(1.months) }
+    completed_at: Time.current.ago(3.months), published_at: Time.current },
+  { title: 'title02', description: 'descript, published_at: Time.currention02', width: 200, height: 500, style: 'Pencil', material: 'Panel',
+    completed_at: Time.current.ago(2.months), published_at: Time.current },
+  { title: 'title03', description: 'descript, published_at: Time.currention03', width: 300, height: 600, style: 'Pencil', material: 'Panel',
+    completed_at: Time.current.ago(1.months), published_at: Time.current }
 ]
 
 artworks.each { |artwork| user.artworks.create!(artwork) }
