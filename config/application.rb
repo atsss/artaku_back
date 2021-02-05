@@ -29,6 +29,8 @@ module Api
     config.public_file_server.enabled = true
     config.read_encrypted_secrets = true
 
+    config.x.cors_allowed_origins = ENV['CORS_ALLOWED_ORIGINS']
+
     config.generators do |g|
       g.test_framework nil
       g.factory_bot false
