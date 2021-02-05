@@ -10,6 +10,7 @@ gem 'webpacker'
 
 # API
 gem 'graphql'
+gem 'rack-cors'
 
 # Image
 gem 'google-cloud-storage', '~> 1.8', require: false
