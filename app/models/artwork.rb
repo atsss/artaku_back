@@ -32,4 +32,12 @@ class Artwork < ApplicationRecord
   def thumbnail_url
     thumbnail.attached? ?  url_for(thumbnail) : nil
   end
+
+  def painting_method
+    "#{style} on #{material}"
+  end
+
+  def size
+    "#{height}x#{width}mm"
+  end
 end

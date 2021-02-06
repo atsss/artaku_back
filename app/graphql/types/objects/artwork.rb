@@ -5,10 +5,8 @@ module Types
       field :title, String, null: false
       field :thumbnail_url, String, null: true
       field :description, String, null: true
-      field :width, Float, null: false
-      field :height, Float, null: false
-      field :style, String, null: false
-      field :material, String, null: false
+      field :size, String, null: false
+      field :painting_method, String, null: false
       field :created_at, Types::Scalars::DateTime, null: false
       field :completed_at, Types::Scalars::DateTime, null: true
     end
