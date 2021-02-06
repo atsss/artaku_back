@@ -4,6 +4,7 @@ module Types
       field :id, ID, null: false
       field :slug, String, null: false
       field :name, String, null: false
+      field :image_url, String, null: true
       field :descriptions, [String], null: true
       field :created_at, Types::Scalars::DateTime, null: false
       field :artworks, [Artwork], null: true

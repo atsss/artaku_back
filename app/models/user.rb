@@ -14,6 +14,7 @@
 #  index_users_on_slug  (slug) UNIQUE
 #
 class User < ApplicationRecord
+  include Rails.application.routes.url_helpers
   has_one_attached :image
   has_many :artworks, foreign_key: :author_id
   has_many :shootings, foreign_key: :author_id
@@ -23,5 +24,9 @@ class User < ApplicationRecord
 
   def descriptions
     description.split(/\R/)
+  end
+
+  def image_url
+    image.attached? ?  url_for(image) : nil
   end
 end
