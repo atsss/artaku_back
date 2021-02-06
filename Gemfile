@@ -19,6 +19,10 @@ gem 'image_processing'
 # Admin
 gem 'rails_admin'
 
+# Log
+gem 'lograge'
+gem 'logstash-event'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
