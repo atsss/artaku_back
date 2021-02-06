@@ -1,6 +1,6 @@
 class GraphqlController < ApplicationController
   # protect_from_forgery with: :null_session
-  skip_before_action :verify_authenticity_token # FIXME: set up csrf
+  skip_before_action :verify_authenticity_token
 
   def execute
     variables = prepare_variables(params[:variables])
