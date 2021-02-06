@@ -20,4 +20,8 @@ class User < ApplicationRecord
 
   validates :slug, :name, presence: true
   validates :slug, uniqueness: true
+
+  def descriptions
+    description.split(/\R/)
+  end
 end
