@@ -3,6 +3,7 @@ module Types
     class Artwork < Base
       field :id, ID, null: false
       field :title, String, null: false
+      field :thumbnail_url, String, null: true
       field :description, String, null: true
       field :width, Float, null: false
       field :height, Float, null: false

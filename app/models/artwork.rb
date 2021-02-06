@@ -23,8 +23,13 @@
 #  index_artworks_on_author_id  (author_id)
 #
 class Artwork < ApplicationRecord
-  has_one_attached :main_image
+  include Rails.application.routes.url_helpers
+  has_one_attached :thumbnail
   belongs_to :author, class_name: 'User'
 
   validates :title, :width, :height, :style, :material, presence: true
+
+  def thumbnail_url
+    thumbnail.attached? ?  url_for(thumbnail) : nil
+  end
 end
