@@ -17,7 +17,10 @@ gem 'google-cloud-storage', '~> 1.8', require: false
 gem 'image_processing'
 
 # Admin
-gem 'rails_admin'
+# FIXME: Want to install true rails_admin instead of fork
+# Can't figure out the reason why I can't install rails_admin 2.0.2
+# Actually the version was 2.0.2 but the content was of 2.0.1: https://github.com/sferik/rails_admin/compare/v2.0.2...master
+gem 'rails_admin', git: 'https://github.com/atsss/rails_admin'
 
 # Log
 gem 'lograge'

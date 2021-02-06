@@ -25,6 +25,7 @@ module Api
     config.i18n.enforce_available_locales = true
 
     config.active_record.strict_loading_by_default = true
+    config.active_record.action_on_strict_loading_violation = :log
     config.assets.initialize_on_precompile = false
     config.public_file_server.enabled = true
     config.read_encrypted_secrets = true

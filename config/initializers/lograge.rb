@@ -21,7 +21,7 @@ Rails.application.configure do
       params: event.payload[:params].to_json
     }
     if event.payload[:exception]
-      message = event.payload[:exception].try(:message) || Pariv::Localization.strings(event.payload[:exception].class.name)
+      message = event.payload[:exception].try(:message)
       backtrace = event.payload[:exception].try(:backtrace)
 
       data[:level] = 'fatal'
