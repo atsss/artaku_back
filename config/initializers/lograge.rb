@@ -5,7 +5,7 @@ Rails.application.configure do
   config.lograge.logger = ActiveSupport::Logger.new(path, 100, 100.megabytes)
   config.lograge.formatter = Lograge::Formatters::Logstash.new
 
-  config.lograge.custom_options = ->(event) do
+  config.lograge.custom_options = lambda { |event|
     current_datetime = Time.current
 
     data = {
@@ -30,5 +30,5 @@ Rails.application.configure do
       data[:exception_backtrace] = backtrace[0..6] if backtrace.present?
     end
     data
-  end
+  }
 end

@@ -27,6 +27,6 @@ class User < ApplicationRecord
   end
 
   def image_url
-    image.attached? ?  url_for(image) : nil
+    image.attached? ? url_for(image) : nil
   end
 end

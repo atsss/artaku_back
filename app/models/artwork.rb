@@ -30,7 +30,7 @@ class Artwork < ApplicationRecord
   validates :title, :width, :height, :style, :material, presence: true
 
   def thumbnail_url
-    thumbnail.attached? ?  url_for(thumbnail) : nil
+    thumbnail.attached? ? url_for(thumbnail) : nil
   end
 
   def painting_method

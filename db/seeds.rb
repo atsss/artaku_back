@@ -9,9 +9,12 @@ EOS
 user = User.create!(slug: 'ats', name: 'Atsushi Ito', description: description)
 
 artworks = [
-  { title: 'title01', description: 'description01', published_at: Time.current, width: 100, height: 400, style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(3.months) },
-  { title: 'title02', description: 'description02', published_at: Time.current, width: 200, height: 500, style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(2.months) },
-  { title: 'title03', description: 'description03', published_at: Time.current, width: 300, height: 600, style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(1.months) }
+  { title: 'title01', description: 'description01', published_at: Time.current, width: 100, height: 400,
+    style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(3.months) },
+  { title: 'title02', description: 'description02', published_at: Time.current, width: 200, height: 500,
+    style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(2.months) },
+  { title: 'title03', description: 'description03', published_at: Time.current, width: 300, height: 600,
+    style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(1.months) }
 ]
 
 artworks.each { |artwork| user.artworks.create!(artwork) }

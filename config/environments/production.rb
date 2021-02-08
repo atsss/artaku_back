@@ -39,7 +39,7 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
-  routes.default_url_options = { host: ENV[''], port: ENV[''] } #FIXME: set up url option
+  routes.default_url_options = { host: ENV[''], port: ENV[''] } # FIXME: set up url option
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
