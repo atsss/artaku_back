@@ -27,9 +27,6 @@ RUN gem install bundler -v 2.2.6 && bundle install
 COPY . ./
 RUN yarn install --check-files
 
-# Assets precompile
-RUN bundle exec rake assets:precompile RAILS_ENV=production
-
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 

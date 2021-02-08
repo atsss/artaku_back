@@ -4,6 +4,9 @@ if [ -n "$PORT" ]; then
   RAILS_PORT=$PORT
 fi
 
+# Assets precompile
+bundle exec rake assets:precompile RAILS_ENV=production
+
 # migration
 bin/rails db:migrate RAILS_ENV=production
 
