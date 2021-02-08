@@ -38,8 +38,8 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
-  routes.default_url_options = { host: ENV[''], port: ENV[''] } # FIXME: set up url option
+  config.active_storage.service = :google
+  routes.default_url_options = { host: 'artaku-o3hiu7k2qq-uk.a.run.app', protocol: 'https' }
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil

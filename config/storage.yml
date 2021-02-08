@@ -6,9 +6,8 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-# FIXME
-# google:
-#   service: GCS
-#   project: your_project
-#   credentials: <%= Rails.root.join("path/to/gcs.keyfile") %>
-#   bucket: your_own_bucket
+google:
+  service: GCS
+  project: artaku
+  credentials: <%= Rails.root.join("config/gcs_keys.json") %>
+  bucket: artaku_production
