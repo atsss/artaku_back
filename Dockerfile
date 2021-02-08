@@ -4,7 +4,7 @@ FROM ruby:3.0.0
 
 ## ENV
 ENV RAILS_ENV=production
-ENV PORT=3000
+ENV PORT=8080
 ENV RAILS_LOG_TO_STDOUT=1
 
 ## YARN
@@ -27,14 +27,11 @@ RUN gem install bundler -v 2.2.6 && bundle install
 COPY . ./
 RUN yarn install --check-files
 
-# migration
-RUN bin/rails db:migrate RAILS_ENV=production
-
-# assets precompile
+# Assets precompile
 RUN bundle exec rake assets:precompile RAILS_ENV=production
 
-# Remove a potentially pre-existing server.pid for Rails.
-RUN rm -f tmp/pids/server.pid
+COPY entrypoint.sh /
+RUN chmod +x /entrypoint.sh
 
 # Run the web service on container startup.
-CMD bundle exec rails server -p ${PORT} -b 0.0.0.0
+ENTRYPOINT ["/entrypoint.sh"]
