@@ -17,8 +17,17 @@
 #  index_work_processes_on_deleted_at  (deleted_at)
 #
 class WorkProcess < ApplicationRecord
+  include Rails.application.routes.url_helpers
   belongs_to :artwork
   has_many_attached :images # FIXME: should use has_many: work_process_images
 
   validates :done_at, presence: true
+
+  def descriptions
+    description.split(/\R/)
+  end
+
+  def image_urls
+    images.attached? ? images.map { |image| url_for(image) } : nil
+  end
 end

@@ -7,9 +7,9 @@ module Types
       field :description, String, null: true
       field :size, String, null: false
       field :painting_method, String, null: false
-      field :created_at, Types::Scalars::DateTime, null: false
       field :completed_at, Types::Scalars::DateTime, null: true
       field :author, Types::Objects::Artist, null: false
+      field :processes, [WorkProcess], null: true
     end
   end
 end
