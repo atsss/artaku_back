@@ -5,7 +5,7 @@ module Queries
     argument :id, ID, required: true
 
     def resolve(id: nil)
-      ::Artwork.find(id)
+      ::Artwork.includes(processes: { images_attachments: :blob }).find(id)
     end
   end
 end
