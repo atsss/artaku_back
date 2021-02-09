@@ -10,11 +10,18 @@ user = User.create!(slug: 'ats', name: 'Atsushi Ito', description: description)
 
 artworks = [
   { title: 'title01', description: 'description01', published_at: Time.current, width: 100, height: 400,
-    style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(3.months) },
-  { title: 'title02', description: 'description02', published_at: Time.current, width: 200, height: 500,
     style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(2.months) },
+  { title: 'title02', description: 'description02', published_at: Time.current, width: 200, height: 500,
+    style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(1.months) },
   { title: 'title03', description: 'description03', published_at: Time.current, width: 300, height: 600,
-    style: 'Pencil', material: 'Panel', completed_at: Time.current.ago(1.months) }
+    style: 'Pencil', material: 'Panel' }
 ]
 
 artworks.each { |artwork| user.artworks.create!(artwork) }
+
+description = str = <<~EOS
+  Rather than focusing on the color, I focused on the shape to express depth.
+  Next time, I would like to do something to make the contours stand out more.
+EOS
+
+Artwork.last.processes.create!(description: description, done_at: Time.current.ago(2.months))
