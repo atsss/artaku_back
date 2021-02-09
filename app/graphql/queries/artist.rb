@@ -5,7 +5,7 @@ module Queries
     argument :slug, String, required: true
 
     def resolve(slug: nil)
-      ::User.includes(:artworks).where(slug: slug).first
+      ::User.includes(:image_attachment, artworks: { thumbnail_attachment: :blob }).where(slug: slug).first
     end
   end
 end
