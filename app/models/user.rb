@@ -25,7 +25,7 @@ class User < ApplicationRecord
   validates :slug, uniqueness: true
 
   def descriptions
-    description.split(/\R/)
+    description&.split(/\R/)
   end
 
   def image_url

@@ -25,14 +25,18 @@ class WorkProcess < ApplicationRecord
   validates :done_at, presence: true
 
   def descriptions
-    description.split(/\R/)
+    description&.split(/\R/)
   end
 
   def image_urls
     images.present? ? images.map { |image| image.url } : nil
   end
 
-  def video_urls
-    videos.present? ? videos.map { |video| video.url } : nil
+  def video_ids
+    videos.present? ? videos.map { |video| self.class.extract_youtube_id(video.url) } : nil
+  end
+
+  def summary_video_id
+    self.class.extract_youtube_id(summary_video_url)
   end
 end
