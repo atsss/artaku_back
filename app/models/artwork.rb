@@ -26,6 +26,7 @@
 #
 class Artwork < ApplicationRecord
   include Rails.application.routes.url_helpers
+  has_many :processes, class_name: 'WorkProcess', dependent: :restrict_with_error
   has_one_attached :thumbnail
   belongs_to :author, class_name: 'User'
 
