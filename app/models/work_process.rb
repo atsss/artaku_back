@@ -2,14 +2,15 @@
 #
 # Table name: work_processes
 #
-#  id          :bigint           not null, primary key
-#  deleted_at  :datetime
-#  description :text(65535)
-#  done_at     :datetime         not null
-#  video_url   :string(255)
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  artwork_id  :bigint           not null
+#  id                :bigint           not null, primary key
+#  deleted_at        :datetime
+#  description       :text(65535)
+#  done_at           :datetime         not null
+#  summary_video_url :string(255)
+#  title             :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  artwork_id        :bigint           not null
 #
 # Indexes
 #
@@ -17,9 +18,9 @@
 #  index_work_processes_on_deleted_at  (deleted_at)
 #
 class WorkProcess < ApplicationRecord
-  include Rails.application.routes.url_helpers
   belongs_to :artwork
-  has_many_attached :images # FIXME: should use has_many: work_process_images
+  has_many :images, class_name: 'WorkProcessImage', dependent: :restrict_with_error
+  has_many :videos, class_name: 'WorkProcessVideo', dependent: :destroy
 
   validates :done_at, presence: true
 
@@ -28,6 +29,10 @@ class WorkProcess < ApplicationRecord
   end
 
   def image_urls
-    images.attached? ? images.map { |image| url_for(image) } : nil
+    images.present? ? images.map { |image| image.url } : nil
+  end
+
+  def video_urls
+    videos.present? ? videos.map { |video| video.url } : nil
   end
 end

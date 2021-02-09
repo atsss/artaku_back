@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_09_023302) do
+ActiveRecord::Schema.define(version: 2021_02_09_045112) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -86,10 +86,32 @@ ActiveRecord::Schema.define(version: 2021_02_09_023302) do
     t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
+  create_table "work_process_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "work_process_id", null: false
+    t.string "title"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deleted_at"], name: "index_work_process_images_on_deleted_at"
+    t.index ["work_process_id"], name: "index_work_process_images_on_work_process_id"
+  end
+
+  create_table "work_process_videos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "work_process_id", null: false
+    t.string "title"
+    t.string "url", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deleted_at"], name: "index_work_process_videos_on_deleted_at"
+    t.index ["work_process_id"], name: "index_work_process_videos_on_work_process_id"
+  end
+
   create_table "work_processes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.bigint "artwork_id", null: false
+    t.string "title"
     t.text "description"
-    t.string "video_url"
+    t.string "summary_video_url"
     t.datetime "done_at", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", precision: 6, null: false
