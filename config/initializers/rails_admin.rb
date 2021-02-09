@@ -2,6 +2,8 @@ require 'nested_form/engine'
 require 'nested_form/builder_mixin'
 
 RailsAdmin.config do |config|
+  config.default_hidden_fields = %i(created_at updated_at)
+
   ### Popular gems integration
 
   ## == Devise ==
@@ -33,7 +35,7 @@ RailsAdmin.config do |config|
     bulk_delete
     show
     edit
-    delete
+    # delete
     show_in_app
 
     ## With an audit adapter, you can add:

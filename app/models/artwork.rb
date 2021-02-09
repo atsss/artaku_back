@@ -4,6 +4,7 @@
 #
 #  id           :bigint           not null, primary key
 #  completed_at :datetime
+#  deleted_at   :datetime
 #  depth        :float(24)
 #  description  :text(65535)
 #  height       :float(24)        not null
@@ -20,7 +21,8 @@
 #
 # Indexes
 #
-#  index_artworks_on_author_id  (author_id)
+#  index_artworks_on_author_id   (author_id)
+#  index_artworks_on_deleted_at  (deleted_at)
 #
 class Artwork < ApplicationRecord
   include Rails.application.routes.url_helpers
