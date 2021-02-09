@@ -18,7 +18,7 @@
 #
 class WorkProcess < ApplicationRecord
   belongs_to :artwork
-  has_many_attached :images
+  has_many_attached :images # FIXME: should use has_many: work_process_images
 
   validates :done_at, presence: true
 end

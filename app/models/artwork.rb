@@ -27,7 +27,7 @@
 class Artwork < ApplicationRecord
   include Rails.application.routes.url_helpers
   has_many :processes, class_name: 'WorkProcess', dependent: :restrict_with_error
-  has_one_attached :thumbnail
+  has_one_attached :thumbnail # FIXME: should use "has_many: thumbnails"
   belongs_to :author, class_name: 'User'
 
   validates :title, :width, :height, :style, :material, presence: true
