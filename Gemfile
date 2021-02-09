@@ -8,6 +8,9 @@ gem 'puma'
 gem 'rails', '6.1.1'
 gem 'webpacker'
 
+# Model
+gem 'paranoia'
+
 # API
 gem 'graphql'
 gem 'rack-cors'
