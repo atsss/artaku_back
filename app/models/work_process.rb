@@ -37,6 +37,6 @@ class WorkProcess < ApplicationRecord
   end
 
   def summary_video_id
-    self.class.extract_youtube_id(summary_video_url)
+    summary_video_url.present? ? self.class.extract_youtube_id(summary_video_url) : nil
   end
 end
