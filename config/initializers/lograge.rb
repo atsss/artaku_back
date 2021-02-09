@@ -5,7 +5,7 @@ Rails.application.configure do
   config.lograge.logger = ActiveSupport::Logger.new(path, 100, 100.megabytes)
   config.lograge.formatter = Lograge::Formatters::Logstash.new
 
-  config.lograge.custom_options = lambda { |event|
+  config.lograge.custom_options = ->(event) {
     current_datetime = Time.current
 
     data = {
