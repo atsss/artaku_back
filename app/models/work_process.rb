@@ -24,6 +24,12 @@ class WorkProcess < ApplicationRecord
 
   validates :done_at, presence: true
 
+  class << self
+    def extract_youtube_id(url)
+      url.match(%r{https://youtu.be/(.*)})[1]
+    end
+  end
+
   def descriptions
     description&.split(/\R/)
   end
