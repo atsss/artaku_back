@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_11_233804) do
+ActiveRecord::Schema.define(version: 2021_02_12_021017) do
 
   create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
@@ -83,6 +83,16 @@ ActiveRecord::Schema.define(version: 2021_02_11_233804) do
     t.datetime "deleted_at"
     t.index ["author_id"], name: "index_shootings_on_author_id"
     t.index ["deleted_at"], name: "index_shootings_on_deleted_at"
+  end
+
+  create_table "user_images", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.datetime "deleted_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["deleted_at"], name: "index_user_images_on_deleted_at"
+    t.index ["user_id"], name: "index_user_images_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

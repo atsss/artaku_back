@@ -16,8 +16,7 @@
 #  index_users_on_slug        (slug) UNIQUE
 #
 class User < ApplicationRecord
-  include Rails.application.routes.url_helpers
-  has_one_attached :image
+  has_one :image, -> { order(id: :desc) }, class_name: 'UserImage', dependent: :restrict_with_error
   has_many :artworks, foreign_key: :author_id, dependent: :restrict_with_error
   has_many :shootings, foreign_key: :author_id, dependent: :destroy
 
@@ -29,6 +28,6 @@ class User < ApplicationRecord
   end
 
   def image_url
-    image.attached? ? url_for(image) : nil
+    image&.url
   end
 end
