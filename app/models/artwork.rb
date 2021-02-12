@@ -25,15 +25,15 @@
 #  index_artworks_on_deleted_at  (deleted_at)
 #
 class Artwork < ApplicationRecord
-  include Rails.application.routes.url_helpers
+  has_one :thumbnail, -> { order(id: :desc) }, class_name: 'ArtworkImage'
+  has_many :images, class_name: 'ArtworkImage', dependent: :restrict_with_error
   has_many :processes, class_name: 'WorkProcess', dependent: :restrict_with_error
-  has_one_attached :thumbnail # FIXME: should use "has_many: thumbnails"
   belongs_to :author, class_name: 'User'
 
   validates :title, :width, :height, :style, :material, presence: true
 
   def thumbnail_url
-    thumbnail.attached? ? url_for(thumbnail) : nil
+    thumbnail&.url
   end
 
   def painting_method
