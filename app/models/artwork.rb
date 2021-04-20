@@ -36,11 +36,7 @@ class Artwork < ApplicationRecord
     thumbnail&.url
   end
 
-  def painting_method
-    "#{style} on #{material}"
-  end
-
-  def size
-    "#{height}x#{width}mm"
+  def completed_date
+    completed_at.strftime('%Y/%-m/%-d')
   end
 end

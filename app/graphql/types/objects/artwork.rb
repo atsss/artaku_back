@@ -5,9 +5,7 @@ module Types
       field :title, String, null: false
       field :thumbnail_url, String, null: true
       field :description, String, null: true
-      field :size, String, null: false
-      field :painting_method, String, null: false
-      field :completed_at, Types::Scalars::DateTime, null: true
+      field :completed_date, String, null: true
       field :author, Types::Objects::Artist, null: false
       field :processes, [WorkProcess], null: true
     end
