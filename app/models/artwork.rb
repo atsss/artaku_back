@@ -24,6 +24,8 @@ class Artwork < ApplicationRecord
 
   validates :title, presence: true
 
+  scope :order_by_completed_at, -> { order(completed_at: :desc) }
+
   def thumbnail_url
     thumbnail&.url
   end

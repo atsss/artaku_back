@@ -6,7 +6,7 @@ module Types
       field :name, String, null: false
       field :image_url, String, null: true
       field :descriptions, [String], null: true
-      field :artworks, [Artwork], null: true
+      field :artworks, [Artwork], null: true, method: :ordered_artworks
     end
   end
 end
