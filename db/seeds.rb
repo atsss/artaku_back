@@ -8,13 +8,18 @@ EOS
 
 user = User.create!(slug: 'ats', name: 'Atsushi Ito', description: description)
 
-artworks = [
+attributes = [
   { title: 'title01', description: 'description01', completed_at: Time.current.ago(2.months) },
   { title: 'title02', description: 'description02', completed_at: Time.current.ago(1.months) },
   { title: 'title03', description: 'description03' }
 ]
 
-artworks.each { |artwork| user.artworks.create!(artwork) }
+attributes.each do |attribute|
+  artwork = user.artworks.create!(attribute)
+  image = artwork.images.create!
+  image.main.attach(io: File.open("#{Rails.root}/public/samples/artwork01.jpg"), filename: "artwork01.jpg")
+end
+
 
 description = str = <<~EOS
   Rather than focusing on the color, I focused on the shape to express depth.

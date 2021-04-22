@@ -29,6 +29,6 @@ class Artwork < ApplicationRecord
   end
 
   def completed_date
-    completed_at.strftime('%Y/%-m/%-d')
+    completed_at&.strftime('%Y/%-m/%-d')
   end
 end
