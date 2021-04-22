@@ -7,6 +7,8 @@ description = str = <<~EOS
 EOS
 
 user = User.create!(slug: 'ats', name: 'Atsushi Ito', description: description)
+user_image = user.create_image!
+user_image.main.attach(io: File.open("#{Rails.root}/public/samples/user01.jpg"), filename: "user01.jpg")
 
 attributes = [
   { title: 'title01', description: 'description01', completed_at: Time.current.ago(2.months) },
