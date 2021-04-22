@@ -5,16 +5,8 @@
 #  id           :bigint           not null, primary key
 #  completed_at :datetime
 #  deleted_at   :datetime
-#  depth        :float(24)
 #  description  :text(65535)
-#  height       :float(24)        not null
-#  material     :string(255)      not null
-#  price        :integer
-#  published_at :datetime
-#  sold_at      :datetime
-#  style        :string(255)      not null
 #  title        :string(255)      not null
-#  width        :float(24)        not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  author_id    :bigint           not null
@@ -30,7 +22,7 @@ class Artwork < ApplicationRecord
   has_many :processes, class_name: 'WorkProcess', dependent: :restrict_with_error
   belongs_to :author, class_name: 'User'
 
-  validates :title, :width, :height, :style, :material, presence: true
+  validates :title, presence: true
 
   def thumbnail_url
     thumbnail&.url
