@@ -17,10 +17,11 @@
 #  index_artworks_on_deleted_at  (deleted_at)
 #
 class Artwork < ApplicationRecord
+  belongs_to :author, class_name: 'User'
   has_one :thumbnail, -> { order(id: :desc) }, class_name: 'ArtworkImage'
+  has_many :references, dependent: :destroy
   has_many :images, class_name: 'ArtworkImage', dependent: :restrict_with_error
   has_many :processes, class_name: 'WorkProcess', dependent: :restrict_with_error
-  belongs_to :author, class_name: 'User'
 
   validates :title, presence: true
 
