@@ -22,6 +22,11 @@ attributes.each do |attribute|
   image.main.attach(io: File.open("#{Rails.root}/public/samples/artwork01.jpg"), filename: "artwork01.jpg")
 end
 
+references = [
+  { kind: :code, url: 'https://github.com/atsss' },
+  { kind: :document, url: 'http://ciid.dk/education/students-2020/atsushi-ito' }
+]
+references.each { |reference| Artwork.first.references.create!(reference) }
 
 description = str = <<~EOS
   Rather than focusing on the color, I focused on the shape to express depth.
