@@ -9,6 +9,7 @@ gem 'rails', '6.1.3'
 gem 'webpacker'
 
 # Model
+gem 'enumerize'
 gem 'paranoia'
 
 # API
