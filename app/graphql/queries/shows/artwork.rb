@@ -6,7 +6,7 @@ module Queries
       argument :id, ID, required: true
 
       def resolve(id: nil)
-        ::Artwork.includes(:author, processes: [:videos, { images: { main_attachment: :blob } }]).find(id)
+        ::Artwork.includes(:author, :references, processes: [:videos, { images: { main_attachment: :blob } }]).find(id)
       end
     end
   end
