@@ -25,6 +25,6 @@ class Article < ApplicationRecord
   scope :order_by_published_at, -> { order(published_at: :desc) }
 
   def published_date
-    published_at&.strftime('%Y/%-m/%-d')
+    published_at&.strftime('%-d/%b/%Y')
   end
 end
