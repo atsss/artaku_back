@@ -23,4 +23,8 @@ class Article < ApplicationRecord
   validates :title, :description, :url, :published_at, presence: true
 
   scope :order_by_published_at, -> { order(published_at: :desc) }
+
+  def published_date
+    published_at&.strftime('%Y/%-m/%-d')
+  end
 end

@@ -7,6 +7,7 @@ module Queries
 
       def resolve(slug: nil)
         ::User.includes(
+          :ordered_articles,
           image: { main_attachment: :blob },
           ordered_artworks: [:references, { thumbnail: {  main_attachment: :blob  } }]
         ).where(slug: slug).first
