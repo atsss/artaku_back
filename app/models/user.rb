@@ -2,13 +2,18 @@
 #
 # Table name: users
 #
-#  id          :bigint           not null, primary key
-#  deleted_at  :datetime
-#  description :text(65535)
-#  name        :string(255)      not null
-#  slug        :string(255)      not null
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
+#  id            :bigint           not null, primary key
+#  deleted_at    :datetime
+#  description   :text(65535)
+#  facebook_url  :string(255)
+#  github_url    :string(255)
+#  instagram_url :string(255)
+#  linkedin_url  :string(255)
+#  name          :string(255)      not null
+#  slug          :string(255)      not null
+#  twitter_url   :string(255)
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
 #
 # Indexes
 #

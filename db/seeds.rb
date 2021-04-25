@@ -6,7 +6,13 @@ description = <<~EOS
   He believes everything has a logic behind itself. He’d like to create logic from chaos and wants to keep doing that until he dies.
 EOS
 
-user = User.create!(slug: 'ats', name: 'Atsushi Ito', description: description)
+user = User.create!(
+  slug: 'ats',
+  name: 'Atsushi Ito',
+  description: description,
+  github_url: 'https://github.com/atsss',
+  linkedin_url: 'https://www.linkedin.com/in/atsss'
+)
 user_image = user.create_image!
 user_image.main.attach(io: File.open("#{Rails.root}/public/samples/user01.jpg"), filename: "user01.jpg")
 
