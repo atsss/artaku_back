@@ -42,6 +42,13 @@ references = [
 ]
 references.each { |reference| Artwork.first.references.create!(reference) }
 
+articles = [
+  { title: 'How to reduce CSS files with FLOCSS',  description: 'I wrote the ariticle about designing CSS with FLOCSS. The ariticle tells you difficulties to design CSS and tips to reduce CSS files and manage the project.(only Japanese)', url: 'https://qiita.com/Atsss/items/4f9d98fb1d0546539c09', published_at: Time.zone.parse('2016/11/10') },
+  { title: 'Tips to research UX from scratch', description: 'This is the airticle about LT I did. After I released Local Works Search, I decided to share the tips to research UI and interview users. I shared common failures when making something new as well.(only Japanese)', url: 'https://logmi.jp/tech/articles/320290', published_at: Time.zone.parse('2018/10/18') }
+]
+
+articles.each { |article| user.articles.create!(article) }
+
 description = <<~EOS
   Rather than focusing on the color, I focused on the shape to express depth.
   Next time, I would like to do something to make the contours stand out more.

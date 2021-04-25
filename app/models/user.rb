@@ -17,6 +17,8 @@
 #
 class User < ApplicationRecord
   has_one :image, -> { order(id: :desc) }, class_name: 'UserImage', dependent: :restrict_with_error
+  has_many :articles, dependent: :destroy
+  has_many :ordered_articles, -> { order_by_published_at }, class_name: 'Article'
   has_many :artworks, foreign_key: :author_id, dependent: :restrict_with_error
   has_many :ordered_artworks, -> { order_by_completed_at }, foreign_key: :author_id, class_name: 'Artwork'
 
