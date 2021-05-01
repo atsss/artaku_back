@@ -9,6 +9,7 @@
 #  github_url    :string(255)
 #  instagram_url :string(255)
 #  linkedin_url  :string(255)
+#  medium_url    :string(255)
 #  name          :string(255)      not null
 #  slug          :string(255)      not null
 #  twitter_url   :string(255)

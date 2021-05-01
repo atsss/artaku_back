@@ -11,6 +11,7 @@ module Types
       field :twitter_url, String, null: true
       field :facebook_url, String, null: true
       field :instagram_url, String, null: true
+      field :medium_url, String, null: true
       field :artworks, [Artwork], null: true, method: :ordered_artworks
       field :articles, [Article], null: true, method: :ordered_articles
     end
